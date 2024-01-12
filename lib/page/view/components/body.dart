@@ -212,7 +212,7 @@ class AddBirth extends StatelessWidget {
                         //initialValue: 'สร้อย',
                         //controller: submitForm.cowFatherInput,
                         onChanged: (value) {
-                          submitForm.updateCowFather(value);
+                          submitForm.updateCowMother(value);
                         },
                         style: const TextStyle(fontWeight: FontWeight.bold),
                         decoration: const InputDecoration(
@@ -511,14 +511,16 @@ class AddBirth extends StatelessWidget {
                           size: 30,
                           color: Colors.black,
                         ),
-                        items: <String>['ลูกโค', 'Two', 'Three', 'Four']
+                        items: <String>['ลูกโค', 'โคหนุ่ม', 'โคแก่']
                             .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
                           );
                         }).toList(),
-                        onChanged: (value) {},
+                        onChanged: (value) {
+                          submitForm.updateStatus(value.toString());
+                        },
                       ),
                       const SizedBox(height: 20.0),
                       const Text(
@@ -528,78 +530,80 @@ class AddBirth extends StatelessWidget {
                       ),
                       const SizedBox(height: 10.0),
                       Obx(() {
-                        return Wrap(
-                          alignment: WrapAlignment.center,
-                          spacing: 10,
-                          children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    breedsController.buttonStatus.toString() ==
-                                            'breeds5'
-                                        ? Colors.blue[400]
-                                        : Colors.grey[500],
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadiusDirectional.circular(30),
-                                ),
-                              ),
-                              child: const Text(
-                                '5 สายพันธุ์',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              onPressed: () {
-                                breedsController.switchBreeds(1);
-                                submitForm.updateBreeds('5 breeds');
-                              },
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    breedsController.buttonStatus.toString() ==
-                                            'breeds8'
-                                        ? Colors.blue[400]
-                                        : Colors.grey[500],
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadiusDirectional.circular(30),
-                                ),
-                              ),
-                              child: const Text(
-                                '8 สายพันธุ์',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                              onPressed: () {
-                                breedsController.switchBreeds(2);
-                                submitForm.updateBreeds('8 breeds');
-                              },
-                            ),
-                            SizedBox(
-                              width: 110,
-                              child: ElevatedButton(
+                        return Center(
+                          child: Wrap(
+                            alignment: WrapAlignment.center,
+                            spacing: 10,
+                            children: [
+                              ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.pink[400],
+                                  backgroundColor:
+                                      breedsController.buttonStatus.toString() ==
+                                              'breeds5'
+                                          ? Colors.blue[400]
+                                          : Colors.grey[500],
                                   shape: RoundedRectangleBorder(
                                     borderRadius:
                                         BorderRadiusDirectional.circular(30),
                                   ),
                                 ),
-                                child: Row(
-                                  children: const [
-                                    Icon(Icons.compare_arrows),
-                                    SizedBox(width: 5),
-                                    Text(
-                                      'สัดส่วน',
-                                      style: TextStyle(fontSize: 14),
-                                    )
-                                  ],
+                                child: const Text(
+                                  '5 สายพันธุ์',
+                                  style: TextStyle(fontSize: 14),
                                 ),
                                 onPressed: () {
-                                  breedsController.switchBreeds(3);
+                                  breedsController.switchBreeds(1);
+                                  submitForm.updateBreeds('5 breeds');
                                 },
                               ),
-                            ),
-                          ],
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      breedsController.buttonStatus.toString() ==
+                                              'breeds8'
+                                          ? Colors.blue[400]
+                                          : Colors.grey[500],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadiusDirectional.circular(30),
+                                  ),
+                                ),
+                                child: const Text(
+                                  '8 สายพันธุ์',
+                                  style: TextStyle(fontSize: 14),
+                                ),
+                                onPressed: () {
+                                  breedsController.switchBreeds(2);
+                                  submitForm.updateBreeds('8 breeds');
+                                },
+                              ),
+                              SizedBox(
+                                width: 110,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.pink[400],
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadiusDirectional.circular(30),
+                                    ),
+                                  ),
+                                  child: Row(
+                                    children: const [
+                                      Icon(Icons.compare_arrows),
+                                      SizedBox(width: 5),
+                                      Text(
+                                        'สัดส่วน',
+                                        style: TextStyle(fontSize: 14),
+                                      )
+                                    ],
+                                  ),
+                                  onPressed: () {
+                                    breedsController.switchBreeds(3);
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                         );
                       }),
                       const SizedBox(height: 20.0),
@@ -853,37 +857,39 @@ class AddBirth extends StatelessWidget {
                             insetPadding:
                                 const EdgeInsets.fromLTRB(0, 140, 0, 140),
                             title: const Text("ข้อมูลที่บันทึก"),
-                            content: Column(
-                              children: [
-                                Text('แม่โคที่คลอด: ${submitForm.cowFather}'),
-                                Text('พ่อพันธุ์: ${submitForm.cowMother}'),
-                                Text('เลขโค ${submitForm.cowNumber}'),
-                                Obx(() {
-                                  if (btnNumberCowAddtional
-                                      .buttonStatus.value) {
-                                    return Column(
-                                      children: [
-                                        Text(
-                                            'nid: ${submitForm.nid.toString()}'),
-                                        Text(
-                                            'rfid ${submitForm.rfid.toString()}'),
-                                        Text(
-                                            'dpo ${submitForm.dpo.toString()}'),
-                                      ],
-                                    );
-                                  } else {
-                                    return const SizedBox.shrink();
-                                  }
-                                }),
-                                Text('ชื่อวัว: ${submitForm.cowName}'),
-                                Text(
-                                    'วันเกิด: ${submitForm.birthDate.toString()}'),
-                                Text('เพศ: ${submitForm.gender}'),
-                                Text('สถานะ: ${submitForm.status}'),
-                                Text('สายพันธุ์: ${submitForm.breeds}'),
-                                Text('โรงเรือน: ${submitForm.house}'),
-                                Text('เลือกฝูง: ${submitForm.pack}'),
-                              ],
+                            content: SingleChildScrollView(
+                              child: Column(
+                                children: [
+                                  Text('แม่โคที่คลอด: ${submitForm.cowMother}'),
+                                  Text('พ่อพันธุ์: ${submitForm.cowFather}'),
+                                  Text('เลขโค ${submitForm.cowNumber}'),
+                                  Obx(() {
+                                    if (btnNumberCowAddtional
+                                        .buttonStatus.value) {
+                                      return Column(
+                                        children: [
+                                          Text(
+                                              'nid: ${submitForm.nid.toString()}'),
+                                          Text(
+                                              'rfid ${submitForm.rfid.toString()}'),
+                                          Text(
+                                              'dpo ${submitForm.dpo.toString()}'),
+                                        ],
+                                      );
+                                    } else {
+                                      return const SizedBox.shrink();
+                                    }
+                                  }),
+                                  Text('ชื่อวัว: ${submitForm.cowName}'),
+                                  Text(
+                                      'วันเกิด: ${submitForm.birthDate.toString()}'),
+                                  Text('เพศ: ${submitForm.gender}'),
+                                  Text('สถานะ: ${submitForm.status}'),
+                                  Text('สายพันธุ์: ${submitForm.breeds}'),
+                                  Text('โรงเรือน: ${submitForm.house}'),
+                                  Text('เลือกฝูง: ${submitForm.pack}'),
+                                ],
+                              ),
                             ),
                             actions: <Widget>[
                               TextButton(
