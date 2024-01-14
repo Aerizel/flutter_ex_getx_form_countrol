@@ -1,5 +1,6 @@
 //import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+//import 'package:flutter/material.dart';
 import 'package:getx_form_countrol/page/model/form_model.dart';
 
 class SubmitForm extends GetxController {
@@ -17,6 +18,7 @@ class SubmitForm extends GetxController {
   var house = InformBabyCow().house;
   var pack = InformBabyCow().pack;
 
+  //Update method
   void updateCowFather(String value) {
     cowFather = value;
     update();
@@ -81,6 +83,5 @@ class SubmitForm extends GetxController {
     pack = value;
     update();
   }
-  
-  //TextEditingController cowFatherInput = TextEditingController();
+
 }

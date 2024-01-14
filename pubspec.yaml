@@ -32,6 +32,7 @@ dependencies:
   intl:
   dotted_border:
   image_picker:
+  cool_alert:
   flutter:
     sdk: flutter
 

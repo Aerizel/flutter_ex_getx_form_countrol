@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 
-class ImagePickerController extends GetxController {
+class MainController extends GetxController {
+  //Image controller
   var selectedImagePath = ''.obs;
 
   Future pickGalleyImage() async {
@@ -30,29 +31,7 @@ class ImagePickerController extends GetxController {
     selectedImagePath.value = '';
   }
 
-  /*Future _setImageSize() async {
-    final Image image = Image.file(File(selectedImagePath.value));
-    final Completer<Size> completer = Completer<Size>();
-    image.image.resolve(const ImageConfiguration()).addListener(
-      ImageStreamListener((ImageInfo info, bool _) {
-        completer.complete(Size(
-          info.image.width.toDouble(),
-          info.image.height.toDouble(),
-        ));
-      }),
-    );
-
-    final Size imageSize = await completer.future;
-    updateImageHeight(imageSize.height);
-  }
-
-  void updateImageHeight(double height) {
-    imageHeight.value = height;
-    update(); 
-  }*/
-}
-
-class DatePickerController extends GetxController {
+  //Date controller
   var countBirthDate = '0'.obs;
   TextEditingController dateTextController = TextEditingController();
 
@@ -77,23 +56,20 @@ class DatePickerController extends GetxController {
     }
   }
 
-  //Prevent memory from leaking
-  @override
-  void onClose() {
+  @override 
+  void onClose() { //Prevent memory from leaking
     dateTextController.dispose();
     super.onClose();
   }
-}
 
-class GenderController extends GetxController {
+  //Gender controller
   var genderType = 'female'.obs;
 
   void switchGender(String pickGender) {
     pickGender == 'male' ? genderType.value = 'male' : genderType.value = 'female';
   }
-}
 
-class BreedsController extends GetxController {
+  //Breeds controller
   var buttonStatus = ''.obs;
   var showRatio = false.obs;
 
@@ -106,13 +82,12 @@ class BreedsController extends GetxController {
       showRatio.value = !showRatio.value;
     }
   }
-}
 
-class BtnNumberCowAddtional extends GetxController {
-  var buttonStatus = false.obs;
+  //Button cow additional controller
+  var buttonCowStatus = false.obs;
 
   void switchStatus()  {
-    buttonStatus.value = !buttonStatus.value;
+    buttonCowStatus.value = !buttonCowStatus.value;
     update();
   }
 }
