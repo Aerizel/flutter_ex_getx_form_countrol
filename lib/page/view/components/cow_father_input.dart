@@ -29,7 +29,7 @@ class CowFatherInput extends StatelessWidget {
               labelText: controller.label.labelHerd,
               labelStyle: const TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.grey),
-              border: OutlineInputBorder()),
+              border: const OutlineInputBorder()),
         );
       },
     );
