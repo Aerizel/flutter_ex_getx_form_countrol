@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'components/body.dart';
+import 'view/components/body.dart';
 
 void main() {
   initializeDateFormatting();
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Form controll',
+      title: 'Form control',
       theme: Theme.of(context).copyWith(
         colorScheme: Theme.of(context).colorScheme.copyWith(
               primary: const Color(0xFFec4899),
