@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowBreedsBtn extends StatelessWidget {
   const CowBreedsBtn({super.key});
@@ -30,9 +31,9 @@ class CowBreedsBtn extends StatelessWidget {
                       borderRadius: BorderRadiusDirectional.circular(30),
                     ),
                   ),
-                  child: Text(
-                    controller.label.labelBreedsBtn1,
-                    style: const TextStyle(fontSize: 14),
+                  child: const Text(
+                    labelBreedsBtn1,
+                    style: TextStyle(fontSize: 14),
                   ),
                   onPressed: () {
                     controller.breedsController.switchBreeds(1);
@@ -50,9 +51,9 @@ class CowBreedsBtn extends StatelessWidget {
                       borderRadius: BorderRadiusDirectional.circular(30),
                     ),
                   ),
-                  child: Text(
-                    controller.label.labelBreedsBtn2,
-                    style: const TextStyle(fontSize: 14),
+                  child: const Text(
+                    labelBreedsBtn2,
+                    style: TextStyle(fontSize: 14),
                   ),
                   onPressed: () {
                     controller.breedsController.switchBreeds(2);
@@ -69,12 +70,12 @@ class CowBreedsBtn extends StatelessWidget {
                       ),
                     ),
                     child: Row(
-                      children: [
-                        const Icon(Icons.compare_arrows),
-                        const SizedBox(width: 5),
+                      children: const[
+                        Icon(Icons.compare_arrows),
+                        SizedBox(width: 5),
                         Text(
-                          controller.label.labelBreedsBtn3,
-                          style: const TextStyle(fontSize: 14),
+                          labelBreedsBtn3,
+                          style: TextStyle(fontSize: 14),
                         )
                       ],
                     ),

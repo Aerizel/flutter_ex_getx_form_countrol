@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowBreedsDisplay extends StatelessWidget {
   const CowBreedsDisplay({super.key});
@@ -45,9 +46,9 @@ class CowBreedsDisplay extends StatelessWidget {
                         child: Container(
                           color: Theme.of(context).scaffoldBackgroundColor,
                           padding: const EdgeInsets.symmetric(horizontal: 3),
-                          child: Text(
-                            controller.label.labelBreeds,
-                            style: const TextStyle(color: Colors.grey),
+                          child: const Text(
+                            labelBreeds,
+                            style: TextStyle(color: Colors.grey),
                           ),
                         ),
                       ),
@@ -103,9 +104,9 @@ class CowBreedsDisplay extends StatelessWidget {
                       child: Container(
                         color: Theme.of(context).scaffoldBackgroundColor,
                         padding: const EdgeInsets.symmetric(horizontal: 3),
-                        child: Text(
-                          controller.label.labelBreeds,
-                          style: const TextStyle(color: Colors.grey),
+                        child: const Text(
+                          labelBreeds,
+                          style: TextStyle(color: Colors.grey),
                         ),
                       ),
                     ),

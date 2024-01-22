@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowBreedsText extends StatelessWidget {
   const CowBreedsText({super.key});
@@ -20,7 +21,7 @@ class CowBreedsText extends StatelessWidget {
                       Icon(Icons.info_outline, color: Colors.pink[400]),
                       const SizedBox(width: 10.0),
                       Text(
-                        controller.label.labelBreedsInfo,
+                        labelBreedsInfo,
                         style: TextStyle(fontSize: 18, color: Colors.pink[400]),
                       )
                     ],
@@ -29,9 +30,9 @@ class CowBreedsText extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
-                    controller.label.labelBreedsPercent,
-                    style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  const Text(
+                    labelBreedsPercent,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                   Transform(
                     transform: Matrix4.skewX(-0.3),

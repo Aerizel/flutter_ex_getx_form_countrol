@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowNameInput extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -24,10 +25,10 @@ class CowNameInput extends StatelessWidget {
             }
             return null;
           },
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            labelText: controller.label.labelCowName,
-            labelStyle: const TextStyle(
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: labelCowName,
+            labelStyle: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.grey),
           ),
         );

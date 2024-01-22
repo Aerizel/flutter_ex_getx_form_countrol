@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowSerialAddtional extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -27,9 +28,9 @@ class CowSerialAddtional extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      controller.label.labelSerialAddtional,
-                      style: const TextStyle(fontSize: 18),
+                    const Text(
+                      labelSerialAddtional,
+                      style: TextStyle(fontSize: 18),
                     ),
                     Obx(() {
                       return controller.additionalController.buttonCowStatus.value
@@ -54,10 +55,10 @@ class CowSerialAddtional extends StatelessWidget {
                         int intValue = int.parse(value);
                         controller.submitForm.updateNid(intValue);
                       },
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        labelText: controller.label.labelRfid,
-                        labelStyle: const TextStyle(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: labelNid,
+                        labelStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.grey),
                       ),
                       keyboardType: TextInputType.number,
@@ -68,10 +69,10 @@ class CowSerialAddtional extends StatelessWidget {
                         int intValue = int.parse(value);
                         controller.submitForm.updateRfid(intValue);
                       },
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        labelText: controller.label.labelRfid,
-                        labelStyle: const TextStyle(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: labelRfid,
+                        labelStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.grey),
                       ),
                       keyboardType: TextInputType.number,
@@ -82,10 +83,10 @@ class CowSerialAddtional extends StatelessWidget {
                         int intValue = int.parse(value);
                         controller.submitForm.updateDpo(intValue);
                       },
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(),
-                        labelText: controller.label.labelDpo,
-                        labelStyle: const TextStyle(
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: labelDpo,
+                        labelStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.grey),
                       ),
                       keyboardType: TextInputType.number,

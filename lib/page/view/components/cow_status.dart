@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowStatus extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -15,10 +16,10 @@ class CowStatus extends StatelessWidget {
       },
       builder: (controller) {
         return DropdownButtonFormField<String>(
-          decoration: InputDecoration(
-            labelText: controller.label.labelCowType,
-            labelStyle: const TextStyle(fontSize: 20, color: Colors.grey),
-            border: const OutlineInputBorder(),
+          decoration: const InputDecoration(
+            labelText: labelCowType,
+            labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
+            border: OutlineInputBorder(),
           ),
           value: 'ลูกโค',
           style:

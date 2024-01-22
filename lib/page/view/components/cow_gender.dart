@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowGender extends StatelessWidget {
   const CowGender({super.key});
@@ -39,11 +40,11 @@ class CowGender extends StatelessWidget {
                         color: Colors.pink[400],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
                       child: Text(
-                        controller.label.labelCowGenderFemale,
-                        style: const TextStyle(fontSize: 16),
+                        labelCowGenderFemale,
+                        style: TextStyle(fontSize: 16),
                       ),
                     )
                   ],
@@ -79,11 +80,11 @@ class CowGender extends StatelessWidget {
                         color: Colors.blue[400],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8.0),
                       child: Text(
-                        controller.label.labelCowGenderMale,
-                        style: const TextStyle(fontSize: 16),
+                        labelCowGenderMale,
+                        style: TextStyle(fontSize: 16),
                       ),
                     ),
                   ],

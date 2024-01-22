@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowGroup extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -21,10 +22,10 @@ class CowGroup extends StatelessWidget {
             }
             return null;
           },
-          decoration: InputDecoration(
-            labelText: controller.label.labelHerd,
-            labelStyle: const TextStyle(fontSize: 20, color: Colors.grey),
-            border: const OutlineInputBorder(),
+          decoration: const InputDecoration(
+            labelText: labelHerd,
+            labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
+            border: OutlineInputBorder(),
           ),
           value: 'เลือกฝูง',
           style:
