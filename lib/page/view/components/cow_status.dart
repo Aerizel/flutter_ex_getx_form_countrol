@@ -30,12 +30,14 @@ class CowStatus extends StatelessWidget {
             color: Colors.black,
           ),
           items: <String>['ลูกโค', 'โคหนุ่ม', 'โคแก่']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
+              .map<DropdownMenuItem<String>>(
+            (String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            },
+          ).toList(),
           onChanged: (value) {
             controller.submitForm.updateStatus(value.toString());
           },

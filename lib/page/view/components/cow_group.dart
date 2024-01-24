@@ -36,12 +36,14 @@ class CowGroup extends StatelessWidget {
             color: Colors.black,
           ),
           items: <String>['เลือกฝูง', 'ฝูง1', 'ฝูง2', 'ฝูง3']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
+              .map<DropdownMenuItem<String>>(
+            (String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            },
+          ).toList(),
           onChanged: (value) {
             controller.submitForm.updatePack(value.toString());
           },

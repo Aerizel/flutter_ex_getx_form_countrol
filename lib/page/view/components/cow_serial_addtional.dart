@@ -32,12 +32,16 @@ class CowSerialAddtional extends StatelessWidget {
                       labelSerialAddtional,
                       style: TextStyle(fontSize: 18),
                     ),
-                    Obx(() {
-                      return controller.additionalController.buttonCowStatus.value
-                        ? const Icon(Icons.keyboard_arrow_up_rounded, size: 30)
-                        : const Icon(Icons.keyboard_arrow_down_rounded,
-                            size: 30);
-                    }),
+                    Obx(
+                      () {
+                        return controller
+                                .additionalController.buttonCowStatus.value
+                            ? const Icon(Icons.keyboard_arrow_up_rounded,
+                                size: 30)
+                            : const Icon(Icons.keyboard_arrow_down_rounded,
+                                size: 30);
+                      },
+                    ),
                   ],
                 ),
                 onPressed: () {
@@ -46,57 +50,59 @@ class CowSerialAddtional extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10.0),
-            Obx(() {
-              if (controller.additionalController.buttonCowStatus.value) {
-                return Column(
-                  children: [
-                    TextFormField(
-                      onChanged: (value) {
-                        int intValue = int.parse(value);
-                        controller.submitForm.updateNid(intValue);
-                      },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: labelNid,
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
+            Obx(
+              () {
+                if (controller.additionalController.buttonCowStatus.value) {
+                  return Column(
+                    children: [
+                      TextFormField(
+                        onChanged: (value) {
+                          int intValue = int.parse(value);
+                          controller.submitForm.updateNid(intValue);
+                        },
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: labelNid,
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.grey),
+                        ),
+                        keyboardType: TextInputType.number,
                       ),
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(height: 10.0),
-                    TextFormField(
-                      onChanged: (value) {
-                        int intValue = int.parse(value);
-                        controller.submitForm.updateRfid(intValue);
-                      },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: labelRfid,
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
+                      const SizedBox(height: 10.0),
+                      TextFormField(
+                        onChanged: (value) {
+                          int intValue = int.parse(value);
+                          controller.submitForm.updateRfid(intValue);
+                        },
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: labelRfid,
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.grey),
+                        ),
+                        keyboardType: TextInputType.number,
                       ),
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(height: 10.0),
-                    TextFormField(
-                      onChanged: (value) {
-                        int intValue = int.parse(value);
-                        controller.submitForm.updateDpo(intValue);
-                      },
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: labelDpo,
-                        labelStyle: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.grey),
+                      const SizedBox(height: 10.0),
+                      TextFormField(
+                        onChanged: (value) {
+                          int intValue = int.parse(value);
+                          controller.submitForm.updateDpo(intValue);
+                        },
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: labelDpo,
+                          labelStyle: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.grey),
+                        ),
+                        keyboardType: TextInputType.number,
                       ),
-                      keyboardType: TextInputType.number,
-                    ),
-                  ],
-                );
-              } else {
-                return const SizedBox.shrink();
-              }
-            }),
+                    ],
+                  );
+                } else {
+                  return const SizedBox.shrink();
+                }
+              },
+            ),
           ],
         );
       },

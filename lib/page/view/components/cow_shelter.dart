@@ -40,12 +40,14 @@ class CowShelter extends StatelessWidget {
             'โรงเรือน 1',
             'โรงเรือน 2',
             'โรงเรือน 3'
-          ].map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
+          ].map<DropdownMenuItem<String>>(
+            (String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            },
+          ).toList(),
           onChanged: (value) {
             controller.submitForm.updateHouse(value.toString());
           },
