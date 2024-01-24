@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowBirthDate extends StatelessWidget {
   final GlobalKey<FormState>? formKey;
@@ -18,39 +19,41 @@ class CowBirthDate extends StatelessWidget {
         return Column(
           children: [
             TextFormField(
-                controller: controller.birthDateController.dateTextController,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'กรุณาระบุวันเกิดโคด้วย';
-                  }
-                  return null;
-                },
-                style: const TextStyle(fontWeight: FontWeight.bold),
-                decoration: InputDecoration(
-                  labelText: controller.label.labelBirthDate,
-                  labelStyle: const TextStyle(fontSize: 16, color: Colors.grey),
-                  border: const OutlineInputBorder(),
-                  suffixIcon: const Icon(
-                    Icons.arrow_drop_down_circle_outlined,
-                    size: 30,
-                    color: Colors.black,
-                  ),
+              controller: controller.birthDateController.dateTextController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'กรุณาระบุวันเกิดโคด้วย';
+                }
+                return null;
+              },
+              style: const TextStyle(fontWeight: FontWeight.bold),
+              decoration: const InputDecoration(
+                labelText: labelBirthDate,
+                labelStyle: TextStyle(fontSize: 16, color: Colors.grey),
+                border: OutlineInputBorder(),
+                suffixIcon: Icon(
+                  Icons.arrow_drop_down_circle_outlined,
+                  size: 30,
+                  color: Colors.black,
                 ),
-                readOnly: true,
-                onTap: () {
-                  controller.birthDateController.selectedDate(context);
-                }),
+              ),
+              readOnly: true,
+              onTap: () {
+                controller.birthDateController.selectedDate(context);
+              },
+            ),
             Transform(
               transform: Matrix4.skewX(-0.3),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Obx(
-                      () => Text(
-                        "อายุ: ${controller.birthDateController.countBirthDate.value} วัน",
-                      ),
-                    )),
+                  alignment: Alignment.bottomLeft,
+                  child: Obx(
+                    () => Text(
+                      "อายุ: ${controller.birthDateController.countBirthDate.value} วัน",
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

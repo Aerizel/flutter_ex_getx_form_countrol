@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowGender extends StatelessWidget {
   const CowGender({super.key});
@@ -13,89 +14,91 @@ class CowGender extends StatelessWidget {
         state.controller?.genderController.onClose();
       },
       builder: (controller) {
-        return Obx(() {
-          return Row(
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      controller.genderController.genderType.value == 'female'
-                          ? Colors.pink[400]
-                          : Colors.grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusDirectional.circular(30),
+        return Obx(
+          () {
+            return Row(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        controller.genderController.genderType.value == 'female'
+                            ? Colors.pink[400]
+                            : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusDirectional.circular(30),
+                    ),
                   ),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 40,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.female,
+                          color: Colors.pink[400],
+                        ),
                       ),
-                      child: Icon(
-                        Icons.female,
-                        color: Colors.pink[400],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        controller.label.labelCowGenderFemale,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    )
-                  ],
-                ),
-                onPressed: () {
-                  controller.genderController.switchGender('female');
-                  controller.submitForm.updateGender('female');
-                },
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      controller.genderController.genderType.value == 'male'
-                          ? Colors.blue[400]
-                          : Colors.grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusDirectional.circular(30),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          labelCowGenderFemale,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      )
+                    ],
                   ),
+                  onPressed: () {
+                    controller.genderController.switchGender('female');
+                    controller.submitForm.updateGender('female');
+                  },
                 ),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 40,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Icon(
-                        Icons.male,
-                        color: Colors.blue[400],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Text(
-                        controller.label.labelCowGenderMale,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ),
-                  ],
+                const SizedBox(
+                  width: 10,
                 ),
-                onPressed: () {
-                  controller.genderController.switchGender('male');
-                  controller.submitForm.updateGender('male');
-                },
-              ),
-            ],
-          );
-        });
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        controller.genderController.genderType.value == 'male'
+                            ? Colors.blue[400]
+                            : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadiusDirectional.circular(30),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 40,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child: Icon(
+                          Icons.male,
+                          color: Colors.blue[400],
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Text(
+                          labelCowGenderMale,
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                    ],
+                  ),
+                  onPressed: () {
+                    controller.genderController.switchGender('male');
+                    controller.submitForm.updateGender('male');
+                  },
+                ),
+              ],
+            );
+          },
+        );
       },
     );
   }

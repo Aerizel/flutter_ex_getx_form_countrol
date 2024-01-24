@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 import 'image_picker.dart';
 import 'cow_mother_input.dart';
 import 'cow_father_input.dart';
@@ -31,9 +32,9 @@ class AddBirth extends StatelessWidget {
               leading: IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.arrow_back_rounded, size: 35)),
-              title: Text(
-                controller.label.screenTitle,
-                style: const TextStyle(color: Colors.white),
+              title: const Text(
+                screenTitle,
+                style: TextStyle(color: Colors.white),
               ),
             ),
             body: SingleChildScrollView(
@@ -86,11 +87,11 @@ class AddBirth extends StatelessWidget {
                               CowNameInput(formKey: formKey),
                               const SizedBox(height: 15.0),
                               CowBirthDate(formKey: formKey),
-                              Padding(
-                                  padding: const EdgeInsets.only(top: 20),
+                              const Padding(
+                                  padding: EdgeInsets.only(top: 20),
                                   child: Text(
-                                    controller.label.labelCowType,
-                                    style: const TextStyle(
+                                    labelCowType,
+                                    style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20,
                                         color: Colors.black),
@@ -99,9 +100,9 @@ class AddBirth extends StatelessWidget {
                               const SizedBox(height: 20.0),
                               CowStatus(formKey: formKey),
                               const SizedBox(height: 20.0),
-                              Text(
-                                controller.label.labelBreeds,
-                                style: const TextStyle(
+                              const Text(
+                                labelBreeds,
+                                style: TextStyle(
                                     fontWeight: FontWeight.bold, fontSize: 18),
                               ),
                               const SizedBox(height: 10.0),

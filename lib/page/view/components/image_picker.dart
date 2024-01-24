@@ -10,31 +10,32 @@ class ImagePicker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MainController>(
-        init: MainController(),
-        dispose: (state) {
-          state.controller?.imageController.onClose();
-        },
-        builder: (controller) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: [
-              DottedBorder(
-                color: Colors.pink,
-                borderType: BorderType.RRect,
-                radius: const Radius.circular(12),
-                dashPattern: const [12, 12],
-                strokeWidth: 2,
-                strokeCap: StrokeCap.round,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    child: Center(
-                      child: Container(
-                        height: 300,
-                        width: double.infinity,
-                        color: Colors.grey[600],
-                        child: Obx(() {
+      init: MainController(),
+      dispose: (state) {
+        state.controller?.imageController.onClose();
+      },
+      builder: (controller) {
+        return Stack(
+          clipBehavior: Clip.none,
+          children: [
+            DottedBorder(
+              color: Colors.pink,
+              borderType: BorderType.RRect,
+              radius: const Radius.circular(12),
+              dashPattern: const [12, 12],
+              strokeWidth: 2,
+              strokeCap: StrokeCap.round,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  child: Center(
+                    child: Container(
+                      height: 300,
+                      width: double.infinity,
+                      color: Colors.grey[600],
+                      child: Obx(
+                        () {
                           if (controller.imageController.selectedImagePath.value
                               .isNotEmpty) {
                             // If an image is selected, display it
@@ -88,7 +89,7 @@ class ImagePicker extends StatelessWidget {
                                                   SizedBox(height: 5),
                                                   Text("อัปโหลดรูปภาพ",
                                                       style: TextStyle(
-                                                          color: Colors.white)),
+                                                          color: Colors.white),),
                                                 ],
                                               ),
                                             ),
@@ -105,12 +106,13 @@ class ImagePicker extends StatelessWidget {
                                             width: 110,
                                             child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.pink[400],
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5))),
+                                                backgroundColor:
+                                                    Colors.pink[400],
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                ),
+                                              ),
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
@@ -141,33 +143,38 @@ class ImagePicker extends StatelessWidget {
                               ),
                             );
                           }
-                        }),
+                        },
                       ),
                     ),
                   ),
                 ),
               ),
-              Obx(() {
+            ),
+            Obx(
+              () {
                 if (controller.imageController.selectedImagePath.isNotEmpty) {
                   return Positioned(
-                      top: -25,
-                      right: 5,
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.cancel_rounded,
-                          color: Colors.redAccent,
-                          size: 60,
-                        ),
-                        onPressed: () {
-                          controller.imageController.clearSelectedImage();
-                        },
-                      ));
+                    top: -25,
+                    right: 5,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.cancel_rounded,
+                        color: Colors.redAccent,
+                        size: 60,
+                      ),
+                      onPressed: () {
+                        controller.imageController.clearSelectedImage();
+                      },
+                    ),
+                  );
                 } else {
                   return const SizedBox.shrink();
                 }
-              }),
-            ],
-          );
-        });
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

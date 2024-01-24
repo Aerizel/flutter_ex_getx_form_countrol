@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowSerial extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -24,10 +25,10 @@ class CowSerial extends StatelessWidget {
             }
             return null;
           },
-          decoration: InputDecoration(
-            border: const OutlineInputBorder(),
-            labelText: controller.label.labelSerial,
-            labelStyle: const TextStyle(
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: labelSerial,
+            labelStyle: TextStyle(
                 fontWeight: FontWeight.bold, color: Colors.grey),
           ),
         );

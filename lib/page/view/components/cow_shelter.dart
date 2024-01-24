@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowShelter extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -21,10 +22,10 @@ class CowShelter extends StatelessWidget {
             }
             return null;
           },
-          decoration: InputDecoration(
-            labelText: controller.label.labelBuilding,
-            labelStyle: const TextStyle(fontSize: 20, color: Colors.grey),
-            border: const OutlineInputBorder(),
+          decoration: const InputDecoration(
+            labelText: labelBuilding,
+            labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
+            border: OutlineInputBorder(),
           ),
           value: 'เลือกโรงเรือน',
           style:
@@ -39,12 +40,14 @@ class CowShelter extends StatelessWidget {
             'โรงเรือน 1',
             'โรงเรือน 2',
             'โรงเรือน 3'
-          ].map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
+          ].map<DropdownMenuItem<String>>(
+            (String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            },
+          ).toList(),
           onChanged: (value) {
             controller.submitForm.updateHouse(value.toString());
           },

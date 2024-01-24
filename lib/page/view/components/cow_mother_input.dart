@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
+import '../../model/label.dart';
 
 class CowMotherInput extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -25,11 +26,11 @@ class CowMotherInput extends StatelessWidget {
             return null;
           },
           style: const TextStyle(fontWeight: FontWeight.bold),
-          decoration: InputDecoration(
-              labelText: controller.label.labelMom,
-              labelStyle: const TextStyle(
+          decoration: const InputDecoration(
+              labelText: labelMom,
+              labelStyle: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.grey),
-              border: const OutlineInputBorder()),
+              border: OutlineInputBorder()),
         );
       },
     );

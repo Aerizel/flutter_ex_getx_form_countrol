@@ -5,7 +5,7 @@ import 'birthdate_controller.dart';
 import 'gender_controller.dart';
 import 'breeds_controller.dart';
 import 'additional_controller.dart';
-import '../model/label.dart';
+
 class MainController extends GetxController {
   //==================== form controller ====================//
   SubmitForm submitForm = Get.put(SubmitForm());
@@ -25,6 +25,4 @@ class MainController extends GetxController {
   //==================== cow additional controller ====================//
   AdditionalController additionalController = Get.put(AdditionalController());
 
-  //==================== label controller ====================//
-  Label label = Get.put(Label());
 }
