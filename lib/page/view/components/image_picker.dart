@@ -34,114 +34,119 @@ class ImagePicker extends StatelessWidget {
                         height: 300,
                         width: double.infinity,
                         color: Colors.grey[600],
-                        child: Obx(() {
-                          if (controller.imageController.selectedImagePath.value
-                              .isNotEmpty) {
-                            // If an image is selected, display it
-                            return Image.file(
-                              File(controller
-                                  .imageController.selectedImagePath.value),
-                              fit: BoxFit.cover,
-                            );
-                          } else {
-                            // If no image is selected, display the upload button
-                            return Center(
-                              child: Center(
-                                child: Stack(
-                                  children: [
-                                    Center(
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(20.0),
-                                        child: Image.asset(
-                                            "assets/images/cow-icon-image.png"),
+                        child: Obx(
+                          () {
+                            if (controller.imageController.selectedImagePath
+                                .value.isNotEmpty) {
+                              // If an image is selected, display it
+                              return Image.file(
+                                File(controller
+                                    .imageController.selectedImagePath.value),
+                                fit: BoxFit.cover,
+                              );
+                            } else {
+                              // If no image is selected, display the upload button
+                              return Center(
+                                child: Center(
+                                  child: Stack(
+                                    children: [
+                                      Center(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(20.0),
+                                          child: Image.asset(
+                                              "assets/images/cow-icon-image.png"),
+                                        ),
                                       ),
-                                    ),
-                                    Center(
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          InkWell(
-                                            onTap: () {
-                                              controller.imageController
-                                                  .pickGalleyImage();
-                                            },
-                                            child: Container(
-                                              width: 140,
-                                              height: 80,
-                                              decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 1,
-                                                    color: Colors.white),
-                                                borderRadius:
-                                                    BorderRadius.circular(10),
-                                              ),
-                                              child: Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: const [
-                                                  Icon(
-                                                      Icons
-                                                          .cloud_upload_outlined,
-                                                      color: Colors.white,
-                                                      size: 40),
-                                                  SizedBox(height: 5),
-                                                  Text("อัปโหลดรูปภาพ",
-                                                      style: TextStyle(
-                                                          color: Colors.white)),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          const Padding(
-                                            padding: EdgeInsets.all(20.0),
-                                            child: Text(
-                                              "หรือ",
-                                              style: TextStyle(
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            width: 110,
-                                            child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      Colors.pink[400],
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5))),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: const [
-                                                  Icon(
-                                                    Icons.camera_alt,
-                                                    color: Colors.white,
-                                                  ),
-                                                  SizedBox(width: 10),
-                                                  Text(
-                                                    "ถ่ายรูป",
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                ],
-                                              ),
-                                              onPressed: () {
+                                      Center(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
                                                 controller.imageController
-                                                    .pickCameraImage();
+                                                    .pickGalleyImage();
                                               },
+                                              child: Container(
+                                                width: 140,
+                                                height: 80,
+                                                decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      width: 1,
+                                                      color: Colors.white),
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                ),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: const [
+                                                    Icon(
+                                                        Icons
+                                                            .cloud_upload_outlined,
+                                                        color: Colors.white,
+                                                        size: 40),
+                                                    SizedBox(height: 5),
+                                                    Text("อัปโหลดรูปภาพ",
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white)),
+                                                  ],
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                            const Padding(
+                                              padding: EdgeInsets.all(20.0),
+                                              child: Text(
+                                                "หรือ",
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              width: 110,
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor:
+                                                        Colors.pink[400],
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5))),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: const [
+                                                    Icon(
+                                                      Icons.camera_alt,
+                                                      color: Colors.white,
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Text(
+                                                      "ถ่ายรูป",
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onPressed: () {
+                                                  controller.imageController
+                                                      .pickCameraImage();
+                                                },
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          }
-                        }),
+                              );
+                            }
+                          },
+                        ),
                       ),
                     ),
                   ),

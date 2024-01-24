@@ -1,17 +1,17 @@
 class InformBabyCow {
-  String cowFather;
-  String cowMother;
-  String cowNumber;
-  int nid;
-  int rfid;
-  int dpo;
-  String cowName;
-  DateTime birthDate;
-  String gender;
-  String status;
-  String breeds;
-  String house;
-  String pack;
+  late String cowFather;
+  late String cowMother;
+  late String cowNumber;
+  late int nid;
+  late int rfid;
+  late int dpo;
+  late String cowName;
+  late DateTime birthDate;
+  late String gender;
+  late String status;
+  late String breeds;
+  late String house;
+  late String pack;
 
   InformBabyCow({
    this.cowFather = '',
@@ -28,4 +28,20 @@ class InformBabyCow {
    this.house = '',
    this.pack = '',
   }) : birthDate = birthDate ?? DateTime.now(); 
+
+  InformBabyCow.fromJson(Map<String, dynamic>json) {
+    cowFather = json['cow'];
+    cowMother = json[''];
+    cowNumber = json[''];
+    nid = json[''];
+    rfid = json[''];
+    dpo = json[''];
+    cowName = json[''];
+    birthDate = json[''];
+    gender = json[''];
+    status = json[''];
+    breeds = json[''];
+    house = json[''];
+    pack = json[''];
+  }
 }

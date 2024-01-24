@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   get:
+  dio:
   intl:
   dotted_border:
   image_picker:
