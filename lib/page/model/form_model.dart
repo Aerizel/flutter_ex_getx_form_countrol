@@ -29,7 +29,7 @@ class InformBabyCow {
    this.pack = '',
   }) : birthDate = birthDate ?? DateTime.now(); 
 
-  InformBabyCow.fromJson(Map<String, dynamic>json) {
+  /*InformBabyCow.fromJson(Map<String, dynamic>json) {
     cowFather = json['cow'];
     cowMother = json[''];
     cowNumber = json[''];
@@ -43,5 +43,5 @@ class InformBabyCow {
     breeds = json[''];
     house = json[''];
     pack = json[''];
-  }
+  }*/
 }

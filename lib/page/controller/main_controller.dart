@@ -6,6 +6,9 @@ import 'gender_controller.dart';
 import 'breeds_controller.dart';
 import 'additional_controller.dart';
 import 'add_cow_controller.dart';
+import 'cow_type_controller.dart';
+import 'cow_shelter_controller.dart';
+import 'cow_herd_controller.dart';
 
 class MainController extends GetxController {
   //==================== form controller ====================//
@@ -27,6 +30,14 @@ class MainController extends GetxController {
   AdditionalController additionalController = Get.put(AdditionalController());
 
   //==================== Add cow controller ====================//
- AddCowController addCowController = Get.put(AddCowController());
+  AddCowController addCowController = Get.put(AddCowController());
 
+  //==================== cow type controller ====================//
+  CowTypeController cowTypeController = Get.put(CowTypeController());
+
+  //==================== cow shelter controller ====================//
+  CowShelterController cowShelterController = Get.put(CowShelterController());
+
+  //==================== cow herd controller ====================//
+  CowHerdCotroller cowHerdCotroller = Get.put(CowHerdCotroller());
 }

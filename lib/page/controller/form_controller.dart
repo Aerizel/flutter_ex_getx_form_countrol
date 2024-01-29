@@ -18,10 +18,33 @@ class SubmitForm extends GetxController {
   var house = InformBabyCow().house;
   var pack = InformBabyCow().pack;
 
+  //Get method
+  InformBabyCow getSubmitData() {
+    return InformBabyCow(
+      cowFather: cowFather,
+      cowMother: cowMother,
+      cowNumber: cowNumber,
+      nid: nid,
+      rfid: rfid,
+      dpo: dpo,
+      cowName: cowName,
+      birthDate: birthDate,
+      gender: gender,
+      status: status,
+      breeds: breeds,
+      house: house,
+      pack: pack,
+    );
+  }
+
   //Update method
   void updateCowFather(String value) {
     cowFather = value;
     update();
+  }
+
+  String getCowFather() {
+    return cowFather;
   }
 
   void updateCowMother(String value) {

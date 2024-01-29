@@ -27,7 +27,7 @@ class CowFatherInput extends StatelessWidget {
           },
           style: const TextStyle(fontWeight: FontWeight.bold),
           decoration: const InputDecoration(
-              labelText: labelHerd,
+              labelText: labelDed,
               labelStyle: TextStyle(
                   fontWeight: FontWeight.bold, color: Colors.grey),
               border: OutlineInputBorder()),
