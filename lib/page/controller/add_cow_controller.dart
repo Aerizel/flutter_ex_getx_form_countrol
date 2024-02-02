@@ -3,7 +3,6 @@ import '../api/connection/api_cow/add_cow.dart';
 import '../model/form_model.dart';
 
 class AddCowController extends GetxController {
-
   Future<String> uploadStatus = Future.value('');
 
   Future<String> futureCowData(InformBabyCow cowData) async {
@@ -11,7 +10,10 @@ class AddCowController extends GetxController {
     return model;
   }
 
-  Future<void> uploadCowData(InformBabyCow cowData) async {  
+  Future<void> uploadCowData(InformBabyCow cowData) async {
     uploadStatus = futureCowData(cowData);
+    uploadStatus.then(
+      (value) {},
+    );
   }
 }

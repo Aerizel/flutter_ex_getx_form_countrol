@@ -40,7 +40,6 @@ class SubmitForm extends GetxController {
   //Update method
   void updateCowFather(String value) {
     cowFather = value;
-    update();
   }
 
   String getCowFather() {
@@ -49,62 +48,50 @@ class SubmitForm extends GetxController {
 
   void updateCowMother(String value) {
     cowMother = value;
-    update();
   } 
 
   void updateCowNumber(String value) {
     cowNumber = value;
-    update();
   }
 
   void updateNid (int value) {
     nid = value;
-    update();
   }
 
   void updateRfid (int value) {
     rfid = value;
-    update();
   }
 
   void updateDpo(int value) {
     dpo = value;
-    update();
   }
 
   void updateCowName (String value) {
     cowName = value;
-    update();
   }
 
   void updateBirthDate (DateTime value) {
     birthDate = value;
-    update();
   }
 
   void updateGender (String value) {
     gender = value;
-    update();
   }
 
   void updateStatus (String value) {
     status = value;
-    update();
   }
 
   void updateBreeds (String value) {
     breeds = value;
-    update();
   }
 
   void updateHouse (String value) {
     house = value;
-    update();
   }
 
   void updatePack (String value) {
     pack = value;
-    update();
   }
 
 }

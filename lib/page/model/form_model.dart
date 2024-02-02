@@ -23,7 +23,7 @@ class InformBabyCow {
    this.cowName = '',
    DateTime? birthDate,
    this.gender = 'female',
-   this.status = 'ลูกโค',
+   this.status = '',
    this.breeds = '',
    this.house = '',
    this.pack = '',

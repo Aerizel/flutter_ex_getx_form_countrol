@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'view/components/body.dart';
+import 'view/addcow/body.dart';
 
 void main() {
   initializeDateFormatting();

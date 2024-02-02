@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
 import '../../model/label.dart';
+import '../validators.dart';
 
 class CowSerial extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -19,12 +21,15 @@ class CowSerial extends StatelessWidget {
           onChanged: (value) {
             controller.submitForm.updateCowNumber(value);
           },
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'กรุณาระบุเบอร์ลูกโคด้วย';
-            }
-            return null;
-          },
+          validator: Validators.compose([
+            Validators.required("กรุณาระบุเบอร์ลูกโคด้วย"),
+          ],),
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          inputFormatters: [
+            FilteringTextInputFormatter.deny(
+              RegExp('^ +'),
+            ),
+          ],
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: labelSerial,

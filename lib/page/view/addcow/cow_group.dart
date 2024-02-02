@@ -24,6 +24,7 @@ class CowGroup extends StatelessWidget {
               List<CowHerdModel> herdList = snapshot.data as List<CowHerdModel>;
               List<String> herdData =
                   herdList.map((data) => data.herd.toString()).toList();
+              controller.submitForm.updatePack(herdData[0].toString());
               return DropdownButtonFormField<String>(
                 validator: (value) {
                   if (value == 'เลือกฝูง') {

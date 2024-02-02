@@ -1,55 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_form_countrol/page/model/cow_type_model.dart';
 import '../../controller/main_controller.dart';
+import '../../model/cow_shelter.dart';
 import '../../model/label.dart';
 
-class CowStatus extends StatelessWidget {
+class CowShelter extends StatelessWidget {
   final GlobalKey<FormState> formKey;
-  const CowStatus({required this.formKey, super.key});
+  const CowShelter({required this.formKey, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<MainController>(
+    return GetBuilder(
       init: MainController(),
       dispose: (state) {
         state.controller?.submitForm.onClose();
       },
       builder: (controller) {
-        controller.cowTypeController.fetchCowTypeData();
+        controller.cowShelterController.fetchCowShelter();
         return FutureBuilder(
-          future: controller.cowTypeController.futureCowType,
+          future: controller.cowShelterController.futureShelter,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              List<CowType> cowTypeList = snapshot.data as List<CowType>;
-              List<String> cowTypeData = cowTypeList
-                  .map((cowType) => cowType.typeName.toString())
+              List<CowShelterModel> cowShelterList =
+                  snapshot.data as List<CowShelterModel>;
+              List<String> cowShelterData = cowShelterList
+                  .map((cowShelter) => cowShelter.shelter.toString())
                   .toList();
+              controller.submitForm.updateHouse(cowShelterData[0].toString());
               return DropdownButtonFormField<String>(
                 decoration: const InputDecoration(
-                  labelText: labelCowType,
+                  labelText: labelBuilding,
                   labelStyle: TextStyle(fontSize: 20, color: Colors.grey),
                   border: OutlineInputBorder(),
                 ),
-                value: cowTypeData[0],
+                value: cowShelterData[0],
                 style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+                    fontWeight: FontWeight.bold, color: Colors.black),
                 icon: const Icon(
                   Icons.arrow_drop_down_circle_outlined,
                   size: 30,
                   color: Colors.black,
                 ),
-                items:
-                    cowTypeData.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+                items: cowShelterData.map<DropdownMenuItem<String>>(
+                  (String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  },
+                ).toList(),
                 onChanged: (value) {
-                  controller.submitForm.updateStatus(value.toString());
+                  controller.submitForm.updateHouse(value.toString());
                 },
               );
             } else if (snapshot.hasError) {
