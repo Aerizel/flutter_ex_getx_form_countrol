@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/main_controller.dart';
 import '../../model/label.dart';
+import '../cowlist/body.dart';
 import 'image_picker.dart';
 import 'cow_mother_input.dart';
 import 'cow_father_input.dart';
@@ -30,7 +31,11 @@ class AddBirth extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               leading: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const CowList()),
+                    );
+                  },
                   icon: const Icon(Icons.arrow_back_rounded, size: 35)),
               title: const Text(
                 screenTitle,

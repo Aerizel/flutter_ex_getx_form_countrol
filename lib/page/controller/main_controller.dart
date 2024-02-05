@@ -9,8 +9,10 @@ import 'add_cow_controller.dart';
 import 'cow_type_controller.dart';
 import 'cow_shelter_controller.dart';
 import 'cow_herd_controller.dart';
+import 'cow_list_controller.dart';
 
 class MainController extends GetxController {
+  //------------------------------------------ Add cow controller -----------------------------------//
   //==================== form controller ====================//
   SubmitForm submitForm = Get.put(SubmitForm());
   
@@ -40,4 +42,10 @@ class MainController extends GetxController {
 
   //==================== cow herd controller ====================//
   CowHerdCotroller cowHerdCotroller = Get.put(CowHerdCotroller());
+  //-------------------------------------------------------------------------------------------------//
+
+  //------------------------------------------ Add cow controller -----------------------------------//
+  //==================== cow list controller ====================//
+  CowListController cowListController = Get.put(CowListController());
+  //-------------------------------------------------------------------------------------------------//
 }

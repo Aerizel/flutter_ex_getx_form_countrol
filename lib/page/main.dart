@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'view/addcow/body.dart';
+import 'view/main_view.dart';
 
 void main() {
   initializeDateFormatting();
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
               primary: const Color(0xFFec4899),
             ),
       ),
-      home: AddBirth(),
+      home: const MainView(),
     );
   }
 }
